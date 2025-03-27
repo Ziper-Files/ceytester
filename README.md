@@ -49,10 +49,13 @@ mvn javafx:run
 4. Check the event log for a history of key events and response times
 5. Use the "Clear Log" button to reset the event log
 6. Toggle "Show Key Codes" and "Log Events" options as needed
+7. Use the Settings menu to toggle keyboard view visibility or view application information
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
+
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
 ## Contributing
 

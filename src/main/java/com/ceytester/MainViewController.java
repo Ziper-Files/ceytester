@@ -34,6 +34,8 @@ public class MainViewController {
     @FXML private CheckBox showKeycodeCheckbox;
     @FXML private CheckBox logEventsCheckbox;
     
+    private boolean keyboardViewEnabled = true;
+    
     private Map<KeyCode, Rectangle> keyVisuals = new HashMap<>();
     private Map<KeyCode, Long> keyPressTime = new HashMap<>();
     
@@ -50,6 +52,45 @@ public class MainViewController {
         // Default settings
         showKeycodeCheckbox.setSelected(true);
         logEventsCheckbox.setSelected(true);
+        keyboardViewEnabled = true;
+        updateKeyboardVisibility();
+    }
+    
+    /**
+     * Toggles the keyboard view visibility.
+     */
+    public void toggleKeyboardView() {
+        keyboardViewEnabled = !keyboardViewEnabled;
+        updateKeyboardVisibility();
+    }
+    
+    /**
+     * Handles the toggle keyboard menu item action.
+     */
+    @FXML
+    public void handleToggleKeyboard() {
+        toggleKeyboardView();
+    }
+    
+    /**
+     * Handles the about menu item action.
+     */
+    @FXML
+    public void handleAbout() {
+        // Create an alert dialog
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle("About CeyTester");
+        alert.setHeaderText("CeyTester - Keyboard Testing Utility");
+        alert.setContentText("Version: 1.0.1-SNAPSHOT\n\nA simple utility for testing keyboard functionality.\n\nDeveloped with JavaFX.");
+        alert.showAndWait();
+    }
+    
+    /**
+     * Updates the keyboard visibility based on the current setting.
+     */
+    private void updateKeyboardVisibility() {
+        keyboardGrid.setVisible(keyboardViewEnabled);
+        keyboardGrid.setManaged(keyboardViewEnabled);
     }
     
     /**
