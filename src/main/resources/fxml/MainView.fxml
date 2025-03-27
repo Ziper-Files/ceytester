@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ceytester.MainViewController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+    
+    <top>
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="CeyTester - Keyboard Testing Utility" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <CheckBox fx:id="showKeycodeCheckbox" text="Show Key Codes" />
+                <CheckBox fx:id="logEventsCheckbox" text="Log Events" />
+            </HBox>
+            <Separator />
+        </VBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.7" orientation="VERTICAL">
+            <VBox spacing="10">
+                <GridPane fx:id="keyboardGrid" alignment="CENTER" hgap="5" vgap="5">
+                    <!-- Keyboard visualization will be populated programmatically -->
+                </GridPane>
+                
+                <VBox fx:id="keysContainer" spacing="10">
+                    <HBox spacing="20" alignment="CENTER">
+                        <VBox spacing="5" alignment="CENTER" style="-fx-border-color: lightgray; -fx-border-radius: 5; -fx-padding: 10;">
+                            <Label fx:id="keyCodeLabel" text="Key Code: " />
+                            <Label fx:id="keyCharLabel" text="Character: " />
+                            <Label fx:id="modifiersLabel" text="Modifiers: " />
+                            <Label fx:id="keyLocationLabel" text="Location: " />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+            
+            <VBox spacing="5">
+                <Label text="Event Log:" />
+                <TextArea fx:id="eventLog" editable="false" wrapText="true" VBox.vgrow="ALWAYS" />
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button fx:id="clearButton" text="Clear Log" />
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+    
+    <bottom>
+        <HBox fx:id="statusBar" spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 5;">
+            <Label text="Ready" />
+        </HBox>
+    </bottom>
+</BorderPane>
